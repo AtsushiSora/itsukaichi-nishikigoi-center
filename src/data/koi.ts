@@ -25,7 +25,7 @@ export const koiList: Koi[] = [
     status: "販売中",
     comment: "白地が明るく、緋盤のまとまりがよい一尾です。初めての鑑賞池にもおすすめです。",
     imageUrl:
-      "https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1626165603963-e23b676c98f5?auto=format&fit=crop&w=1200&q=80",
     detailUrl: "/koi/koi-001",
   },
   {
@@ -38,7 +38,7 @@ export const koiList: Koi[] = [
     status: "商談中",
     comment: "墨の配置に品があり、成長後の変化も楽しめる個体です。",
     imageUrl:
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1624383127914-073dd0101372?auto=format&fit=crop&w=1200&q=80",
     detailUrl: "/koi/koi-002",
   },
   {
@@ -51,7 +51,7 @@ export const koiList: Koi[] = [
     status: "販売中",
     comment: "力強い体形と深い墨が魅力。存在感のある池づくりに向いています。",
     imageUrl:
-      "https://images.unsplash.com/photo-1551887196-72e32bfc7bf3?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1618419125747-ee5a210c6ebe?auto=format&fit=crop&w=1200&q=80",
     detailUrl: "/koi/koi-003",
   },
   {
@@ -64,7 +64,7 @@ export const koiList: Koi[] = [
     status: "販売中",
     comment: "頭部の丸い緋が美しく、落ち着いた印象のある一尾です。",
     imageUrl:
-      "https://images.unsplash.com/photo-1513040260736-63dd0617fb66?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1580356068648-2204d574d580?auto=format&fit=crop&w=1200&q=80",
     detailUrl: "/koi/koi-004",
   },
   {
@@ -77,7 +77,7 @@ export const koiList: Koi[] = [
     status: "売約済み",
     comment: "白と墨の対比がはっきりした個体です。参考掲載として残しています。",
     imageUrl:
-      "https://images.unsplash.com/photo-1535591273668-578e31182c4f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1625369708811-65ebfc5ca632?auto=format&fit=crop&w=1200&q=80",
     detailUrl: "/koi/koi-005",
   },
   {
@@ -90,7 +90,7 @@ export const koiList: Koi[] = [
     status: "販売中",
     comment: "水面で映える明るい色味。池全体を華やかに見せます。",
     imageUrl:
-      "https://images.unsplash.com/photo-1559825481-12a05cc00344?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1625369730563-3e7d485ed341?auto=format&fit=crop&w=1200&q=80",
     detailUrl: "/koi/koi-006",
   },
 ];
