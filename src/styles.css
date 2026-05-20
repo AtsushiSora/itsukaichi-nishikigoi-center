@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    linear-gradient(90deg, rgba(199, 160, 82, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(18, 18, 18, 0.035) 1px, transparent 1px),
+    #f7f4ee;
+  background-size: 56px 56px;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: #7c1018;
+  color: white;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
