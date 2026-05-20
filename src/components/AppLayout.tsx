@@ -1,4 +1,4 @@
-import { Menu, Phone, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { siteInfo } from "../data/site";
@@ -16,29 +16,28 @@ export function AppLayout() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-washi text-sumi">
-      <header className="sticky top-0 z-40 border-b border-black/10 bg-washi/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+    <div className="min-h-screen bg-white text-sumi">
+      <header className="sticky top-0 z-40 border-b border-black/10 bg-white/95 backdrop-blur">
+        <div className="mx-auto flex max-w-[1380px] items-center justify-between px-5 py-3 lg:px-8">
           <Link to="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
-            <span className="grid h-11 w-11 place-items-center rounded-full border border-kin bg-sumi text-lg font-semibold text-kin">
-              鯉
+            <span className="logo-seal grid h-14 w-14 place-items-center rounded-full border-2 border-urushi bg-white font-serif text-xl font-semibold text-urushi">
+              錦
             </span>
             <span>
-              <span className="block font-serif text-xl font-semibold tracking-normal">
+              <span className="block font-serif text-2xl font-semibold leading-none md:text-3xl">
                 {siteInfo.name}
               </span>
-              <span className="block text-xs text-sumi/60">広島の錦鯉専門店</span>
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-6 lg:flex">
+          <nav className="hidden items-center gap-9 lg:flex">
             {navItems.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
                 className={({ isActive }) =>
-                  `text-sm transition hover:text-urushi ${
-                    isActive ? "font-semibold text-urushi" : "text-sumi/75"
+                  `relative py-5 text-sm font-semibold transition after:absolute after:inset-x-0 after:bottom-2 after:h-0.5 after:origin-center after:scale-x-0 after:bg-urushi after:transition hover:text-urushi hover:after:scale-x-100 ${
+                    isActive ? "text-sumi after:scale-x-100" : "text-sumi/75"
                   }`
                 }
               >
@@ -46,14 +45,6 @@ export function AppLayout() {
               </NavLink>
             ))}
           </nav>
-
-          <a
-            href={`tel:${siteInfo.phone}`}
-            className="hidden items-center gap-2 rounded-full bg-urushi px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-sumi xl:flex"
-          >
-            <Phone size={16} />
-            {siteInfo.phone}
-          </a>
 
           <button
             type="button"
@@ -66,7 +57,7 @@ export function AppLayout() {
         </div>
 
         {open && (
-          <nav className="border-t border-black/10 bg-washi px-5 py-4 lg:hidden">
+          <nav className="border-t border-black/10 bg-white px-5 py-4 lg:hidden">
             <div className="grid gap-2">
               {navItems.map((item) => (
                 <NavLink
@@ -91,20 +82,19 @@ export function AppLayout() {
         <Outlet />
       </main>
 
-      <footer className="bg-sumi text-white">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 md:grid-cols-[1.2fr_1fr_1fr] lg:px-8">
-          <div>
+      <footer className="bg-[linear-gradient(135deg,#121212,#1b2224)] text-white">
+        <div className="mx-auto grid max-w-[1380px] gap-8 px-5 py-8 md:grid-cols-[1fr_1.2fr_1fr] md:items-center lg:px-8">
+          <div className="flex items-center gap-3">
+            <span className="grid h-12 w-12 place-items-center rounded-full border border-white/45 font-serif text-lg text-white">
+              錦
+            </span>
             <p className="font-serif text-2xl font-semibold">{siteInfo.name}</p>
-            <p className="mt-4 max-w-md text-sm leading-7 text-white/70">
-              養殖・販売から池の管理まで、錦鯉と長く付き合うための相談先として丁寧に対応します。
-            </p>
           </div>
-          <div className="text-sm leading-7 text-white/75">
-            <p>電話: {siteInfo.phone}</p>
-            <p>住所: {siteInfo.address}</p>
-            <p>営業時間: {siteInfo.hours}</p>
+          <div className="text-sm leading-7 text-white/75 md:text-center">
+            <p>{siteInfo.address}</p>
+            <p>TEL {siteInfo.phone}　営業時間 {siteInfo.hours}</p>
           </div>
-          <div className="grid content-start gap-2 text-sm">
+          <div className="grid content-start gap-2 text-sm md:justify-end md:text-right">
             <Link to="/privacy" className="text-white/75 hover:text-kin">
               プライバシーポリシー
             </Link>
@@ -113,7 +103,7 @@ export function AppLayout() {
             </Link>
           </div>
         </div>
-        <div className="border-t border-white/10 px-5 py-5 text-center text-xs text-white/50">
+        <div className="border-t border-white/10 px-5 py-4 text-center text-xs text-white/50">
           © {new Date().getFullYear()} {siteInfo.name}. All rights reserved.
         </div>
       </footer>

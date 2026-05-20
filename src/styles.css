@@ -17,11 +17,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    linear-gradient(90deg, rgba(199, 160, 82, 0.08) 1px, transparent 1px),
-    linear-gradient(rgba(18, 18, 18, 0.035) 1px, transparent 1px),
-    #f7f4ee;
-  background-size: 56px 56px;
+  background: #ffffff;
 }
 
 img {
@@ -38,4 +34,19 @@ img {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.logo-seal {
+  box-shadow: inset 0 0 0 4px rgba(124, 16, 24, 0.08);
+}
+
+.brush-panel {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(199, 160, 82, 0.18), transparent 28%),
+    linear-gradient(135deg, rgba(18, 18, 18, 0.96), rgba(18, 18, 18, 0.88)),
+    #121212;
+}
+
+.vertical-label {
+  writing-mode: vertical-rl;
 }

@@ -1,27 +1,36 @@
-import { ArrowRight, Droplets, HeartHandshake, ShieldCheck, Wrench } from "lucide-react";
+import {
+  ArrowRight,
+  HeartHandshake,
+  Home,
+  Phone,
+  ShieldCheck,
+  Wrench,
+} from "lucide-react";
 import { Link } from "react-router-dom";
-import { ContactBand } from "../components/ContactBand";
 import { KoiCard } from "../components/KoiCard";
-import { SectionHeading } from "../components/SectionHeading";
 import { koiList } from "../data/koi";
+import { siteInfo } from "../data/site";
 
 const services = [
   {
     title: "養殖・販売",
     description: "品種、体形、池の環境、ご予算を踏まえ、長く楽しめる錦鯉をご提案します。",
     icon: ShieldCheck,
+    image: koiList[0].imageUrl,
     to: "/about",
   },
   {
     title: "アフターフォロー",
     description: "導入後の餌やり、水質、体調変化まで、専門店として継続的に相談を承ります。",
     icon: HeartHandshake,
+    image: koiList[1].imageUrl,
     to: "/aftercare",
   },
   {
     title: "池・設備メンテナンス",
     description: "濾過槽、ポンプ、水質、池まわりの点検や改善提案に対応します。",
     icon: Wrench,
+    image: koiList[5].imageUrl,
     to: "/maintenance",
   },
 ];
@@ -29,63 +38,56 @@ const services = [
 export function HomePage() {
   return (
     <>
-      <section className="relative min-h-[82vh] overflow-hidden bg-sumi text-white">
+      <section className="relative min-h-[360px] overflow-hidden bg-sumi text-white md:min-h-[420px]">
         <img
-          src={koiList[0].imageUrl}
+          src={koiList[2].imageUrl}
           alt="水中を泳ぐ錦鯉"
-          className="absolute inset-0 h-full w-full object-cover opacity-70"
+          className="absolute inset-0 h-full w-full object-cover opacity-80"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-sumi via-sumi/70 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-washi to-transparent" />
-        <div className="relative mx-auto flex min-h-[82vh] max-w-7xl items-center px-5 pb-24 pt-20 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="mb-5 inline-flex items-center gap-2 border-b border-kin pb-2 text-sm font-semibold tracking-[0.18em] text-kin">
-              HIROSHIMA NISHIKIGOI SPECIALIST
-            </p>
-            <h1 className="font-serif text-5xl font-semibold leading-tight md:text-7xl">
+        <div className="absolute inset-0 bg-gradient-to-r from-sumi via-sumi/70 to-sumi/5" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_62%_48%,transparent_0,rgba(18,18,18,0.12)_32%,rgba(18,18,18,0.72)_100%)]" />
+        <div className="relative mx-auto flex min-h-[360px] max-w-[1380px] items-center px-5 py-14 md:min-h-[420px] lg:px-8">
+          <div className="max-w-[560px]">
+            <h1 className="font-serif text-4xl font-semibold leading-[1.35] md:text-5xl">
               美しい錦鯉を、
               <br />
               未来へつなぐ。
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-9 text-white/85">
+            <p className="mt-5 border-b border-kin pb-4 font-serif text-xl font-semibold leading-8 text-white/95">
               確かな養殖・販売と、安心のアフターフォローを。
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link
-                to="/koi"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-urushi px-6 py-3 font-semibold text-white transition hover:bg-kin hover:text-sumi"
-              >
-                販売中の錦鯉を見る
-                <ArrowRight size={18} />
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center rounded-full border border-white/50 px-6 py-3 font-semibold text-white transition hover:border-kin hover:text-kin"
-              >
-                相談・来店予約
-              </Link>
-            </div>
+            <p className="mt-6 max-w-md text-sm leading-8 text-white/85">
+              五日市錦鯉センターは、丁寧な養殖と確かな目利きで、皆さまの錦鯉ライフをトータルに支えます。
+            </p>
+          </div>
+          <div className="absolute right-8 top-1/2 hidden -translate-y-1/2 flex-col items-center gap-4 lg:flex">
+            <p className="vertical-label font-serif text-2xl font-semibold leading-relaxed text-kin">
+              品質本位
+            </p>
+            <span className="border border-urushi px-2 py-1 font-serif text-sm text-urushi">
+              錦鯉
+            </span>
           </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <SectionHeading
-              eyebrow="Stock"
-              title="販売中の錦鯉"
-              description="掲載価格や状態は仮データです。実際の在庫、商談状況、見学可否はお問い合わせください。"
-            />
+      <section className="bg-white py-8 md:py-10">
+        <div className="mx-auto max-w-[1180px] px-5 lg:px-8">
+          <div className="mb-6 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+            <span className="h-px bg-transparent" />
+            <div className="text-center">
+              <h2 className="font-serif text-3xl font-semibold">販売中の錦鯉</h2>
+              <span className="mx-auto mt-2 block h-0.5 w-16 bg-urushi" />
+            </div>
             <Link
               to="/koi"
-              className="inline-flex items-center gap-2 self-start rounded-full border border-urushi px-5 py-3 text-sm font-semibold text-urushi transition hover:bg-urushi hover:text-white"
+              className="hidden justify-self-end rounded-md border border-[#8f7e65] px-5 py-2 text-sm font-semibold text-sumi transition hover:bg-urushi hover:text-white md:inline-flex"
             >
               一覧を見る
               <ArrowRight size={16} />
             </Link>
           </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
             {koiList.slice(0, 4).map((koi) => (
               <KoiCard key={koi.id} koi={koi} />
             ))}
@@ -93,66 +95,82 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <SectionHeading
-            eyebrow="Service"
-            title="錦鯉と池を、長く美しく保つために。"
-            description="販売して終わりではなく、飼育環境や季節ごとの管理まで見据えてサポートします。"
-            align="center"
-          />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+      <section className="bg-white pb-8">
+        <div className="mx-auto max-w-[1180px] px-5 lg:px-8">
+          <div className="mb-5 text-center">
+            <h2 className="font-serif text-3xl font-semibold">私たちのサービス</h2>
+            <span className="mx-auto mt-2 block h-0.5 w-16 bg-kin" />
+          </div>
+          <div className="grid gap-7 md:grid-cols-3">
             {services.map((service) => (
               <Link
                 key={service.title}
                 to={service.to}
-                className="group rounded-md border border-black/10 bg-washi p-8 transition hover:-translate-y-1 hover:shadow-soft"
+                className="group grid min-h-[122px] grid-cols-[72px_1fr_150px] items-center gap-5 rounded-md border border-[#d8c9ab] bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-soft max-lg:grid-cols-[64px_1fr]"
               >
-                <service.icon className="text-urushi" size={34} />
-                <h3 className="mt-8 font-serif text-2xl font-semibold">{service.title}</h3>
-                <p className="mt-4 leading-8 text-sumi/70">{service.description}</p>
-                <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-urushi">
-                  詳しく見る <ArrowRight size={16} />
-                </span>
+                <service.icon className="text-kin" size={48} strokeWidth={1.7} />
+                <div>
+                  <h3 className="font-serif text-2xl font-semibold">{service.title}</h3>
+                  <p className="mt-2 text-sm leading-7 text-sumi/70">{service.description}</p>
+                </div>
+                <img
+                  src={service.image}
+                  alt=""
+                  className="h-24 w-full rounded-sm object-cover max-lg:hidden"
+                />
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8">
-          <div className="relative">
+      <section className="brush-panel py-0 text-white">
+        <div className="mx-auto grid max-w-[1380px] lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="relative min-h-[210px] overflow-hidden px-5 py-9 lg:px-8">
             <img
               src={koiList[2].imageUrl}
               alt="池で泳ぐ錦鯉"
-              className="aspect-[4/5] w-full rounded-md object-cover shadow-soft"
+              className="absolute inset-0 h-full w-full object-cover opacity-35"
             />
-            <div className="absolute -bottom-6 -right-4 hidden rounded-md bg-sumi p-6 text-white shadow-soft md:block">
-              <Droplets className="text-kin" />
-              <p className="mt-3 max-w-[220px] text-sm leading-7 text-white/75">
-                水質、餌、池の規模まで、はじめの一歩から相談できます。
+            <div className="relative ml-auto max-w-2xl">
+              <h2 className="font-serif text-2xl font-semibold md:text-3xl">
+                はじめての方も、安心してご相談ください。
+              </h2>
+              <p className="mt-4 text-sm leading-8 text-white/82">
+                錦鯉は一匹一匹が個性を持つ生き物です。五日市錦鯉センターでは、初心者の方から愛好家の方まで、経験豊富なスタッフが丁寧にサポートいたします。
               </p>
             </div>
           </div>
-          <div>
-            <SectionHeading
-              eyebrow="Beginner Guide"
-              title="初めての方にも、わかりやすく。"
-              description="錦鯉は、品種や価格だけでなく、池の環境、飼育目的、将来の成長まで含めて選ぶことが大切です。五日市錦鯉センターでは、初心者の方にも無理のない導入方法をご案内します。"
-            />
-            <div className="mt-8 grid gap-4">
-              {["池の広さや濾過設備に合う個体選び", "導入前後の水合わせや体調確認", "季節に合わせた餌やり・水質管理"].map((item) => (
-                <div key={item} className="border-l-4 border-kin bg-white px-5 py-4 text-sumi/75">
-                  {item}
-                </div>
-              ))}
+          <div className="bg-white px-5 py-8 text-sumi lg:px-8">
+            <div className="rounded-md border border-[#d8c9ab] bg-white p-6 shadow-soft">
+              <div className="border-b border-black/10 pb-4 text-center">
+                <h2 className="font-serif text-2xl font-semibold">お問い合わせ</h2>
+                <p className="mt-1 text-sm text-sumi/65">ご相談・ご質問などお気軽にご連絡ください。</p>
+              </div>
+              <div className="mt-5 grid gap-5 md:grid-cols-3">
+                <a href={`tel:${siteInfo.phone}`} className="text-center">
+                  <Phone className="mx-auto text-sumi" size={30} />
+                  <p className="mt-2 text-xs text-sumi/60">お電話でのお問い合わせ</p>
+                  <p className="mt-1 text-xl font-semibold">{siteInfo.phone}</p>
+                  <p className="mt-1 text-xs text-sumi/60">{siteInfo.hours}</p>
+                </a>
+                <Link to="/contact" className="border-y border-black/10 py-4 text-center md:border-x md:border-y-0 md:py-0">
+                  <span className="mx-auto grid h-9 w-9 place-items-center rounded-md bg-[#09b900] text-xs font-bold text-white">
+                    LINE
+                  </span>
+                  <p className="mt-2 font-semibold">LINEで相談する</p>
+                  <p className="mt-1 text-xs leading-5 text-sumi/60">友だち追加でお気軽にご相談</p>
+                </Link>
+                <Link to="/contact" className="text-center">
+                  <Home className="mx-auto text-kin" size={34} />
+                  <p className="mt-2 font-semibold">来店相談のご予約</p>
+                  <p className="mt-1 text-xs leading-5 text-sumi/60">ご来店前にご予約いただけます</p>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
-
-      <ContactBand />
     </>
   );
 }

@@ -1,43 +1,46 @@
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { Koi } from "../data/koi";
 
-const statusClass = {
-  販売中: "bg-mizu text-white",
-  商談中: "bg-kin text-sumi",
-  売約済み: "bg-sumi/70 text-white",
-};
-
 export function KoiCard({ koi }: { koi: Koi }) {
   return (
-    <article className="overflow-hidden rounded-md border border-black/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
-      <Link to={koi.detailUrl} className="block">
-        <div className="relative aspect-[4/3] overflow-hidden bg-sumi/10">
+    <article className="overflow-hidden rounded-md border border-[#d9d1c3] bg-white shadow-[0_4px_18px_rgba(18,18,18,0.08)] transition hover:-translate-y-0.5 hover:shadow-soft">
+      <div className="grid grid-cols-[48%_52%] gap-0 p-1.5 pb-0">
+        <Link to={koi.detailUrl} className="block overflow-hidden bg-mizu/10">
           <img
             src={koi.imageUrl}
             alt={`${koi.variety} ${koi.size}`}
-            className="h-full w-full object-cover transition duration-500 hover:scale-105"
+            className="aspect-[4/5] h-full w-full object-cover transition duration-500 hover:scale-105"
           />
-          <span className={`absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold ${statusClass[koi.status]}`}>
-            {koi.status}
-          </span>
-        </div>
-      </Link>
-      <div className="p-5">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <h3 className="font-serif text-2xl font-semibold">{koi.variety}</h3>
-            <p className="mt-1 text-sm text-sumi/60">
-              {koi.size} / {koi.age} / {koi.sex}
-            </p>
+        </Link>
+        <div className="px-4 py-3">
+          <div className="space-y-2 text-sm">
+            <div className="border-b border-black/10 pb-2">
+              <p className="text-xs text-sumi/55">品種</p>
+              <h3 className="font-serif text-lg font-semibold leading-tight">{koi.variety}</h3>
+            </div>
+            <div className="border-b border-black/10 pb-2">
+              <p className="text-xs text-sumi/55">サイズ</p>
+              <p className="font-semibold">{koi.size}</p>
+            </div>
+            <div className="border-b border-black/10 pb-2">
+              <p className="text-xs text-sumi/55">価格</p>
+              <p className="font-semibold">{koi.price.replace("税込 ", "")}</p>
+            </div>
+            <div>
+              <p className="text-xs text-sumi/55">状態</p>
+              <p className="font-semibold">{koi.status}</p>
+            </div>
           </div>
-          <p className="shrink-0 text-sm font-semibold text-urushi">{koi.price}</p>
         </div>
-        <p className="mt-4 line-clamp-2 text-sm leading-7 text-sumi/70">{koi.comment}</p>
+      </div>
+      <div className="p-1.5 pt-0">
         <Link
           to={koi.detailUrl}
-          className="mt-5 inline-flex items-center justify-center rounded-full border border-urushi px-4 py-2 text-sm font-semibold text-urushi transition hover:bg-urushi hover:text-white"
+          className="inline-flex w-full items-center justify-center gap-3 bg-urushi px-4 py-2.5 font-serif text-base font-semibold text-white transition hover:bg-sumi"
         >
           詳細を見る
+          <ArrowRight size={18} />
         </Link>
       </div>
     </article>
