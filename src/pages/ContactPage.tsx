@@ -14,18 +14,35 @@ export function ContactPage() {
       <section className="py-20 md:py-28">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <div className="grid gap-4">
-            {[
-              { icon: Phone, title: "電話", value: siteInfo.phone },
-              { icon: MessageCircle, title: "LINE相談", value: siteInfo.lineLabel },
-              { icon: Mail, title: "メール", value: siteInfo.email },
-              { icon: MapPin, title: "住所", value: siteInfo.address },
-            ].map((item) => (
-              <div key={item.title} className="rounded-md border border-black/10 bg-white p-6">
-                <item.icon className="text-urushi" size={24} />
-                <p className="mt-4 text-sm text-sumi/50">{item.title}</p>
-                <p className="mt-1 font-semibold">{item.value}</p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                { icon: Phone, title: "電話", value: siteInfo.phone },
+                { icon: MessageCircle, title: "LINE相談", value: siteInfo.lineLabel },
+                { icon: Mail, title: "メール", value: siteInfo.email },
+                { icon: MapPin, title: "住所", value: siteInfo.address },
+              ].map((item) => (
+                <div key={item.title} className="rounded-md border border-black/10 bg-white p-6">
+                  <item.icon className="text-urushi" size={24} />
+                  <p className="mt-4 text-sm text-sumi/50">{item.title}</p>
+                  <p className="mt-1 font-semibold">{item.value}</p>
+                </div>
+              ))}
+            </div>
+            <div className="overflow-hidden rounded-md border border-black/10 bg-white shadow-sm">
+              <iframe
+                title="五日市錦鯉センター 周辺地図"
+                src={siteInfo.mapEmbedUrl}
+                className="aspect-[4/3] w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <div className="flex items-center justify-between gap-4 p-4 text-sm">
+                <span className="text-sumi/65">住所は仮データです。公開前に差し替えてください。</span>
+                <a href={siteInfo.mapUrl} className="shrink-0 font-semibold text-urushi">
+                  地図を開く
+                </a>
               </div>
-            ))}
+            </div>
           </div>
 
           <form className="rounded-md bg-white p-6 shadow-soft md:p-8">

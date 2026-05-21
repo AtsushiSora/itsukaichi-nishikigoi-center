@@ -35,13 +35,21 @@ export function KoiCard({ koi }: { koi: Koi }) {
         </div>
       </div>
       <div className="p-1.5 pt-0">
-        <Link
-          to={koi.detailUrl}
-          className="inline-flex w-full items-center justify-center gap-3 bg-urushi px-4 py-2.5 font-serif text-base font-semibold text-white transition hover:bg-sumi"
-        >
-          詳細を見る
-          <ArrowRight size={18} />
-        </Link>
+        <div className="grid grid-cols-[1.15fr_0.85fr]">
+          <Link
+            to={koi.detailUrl}
+            className="inline-flex items-center justify-center gap-2 bg-urushi px-3 py-2.5 font-serif text-base font-semibold text-white transition hover:bg-sumi"
+          >
+            詳細を見る
+            <ArrowRight size={17} />
+          </Link>
+          <Link
+            to={`/contact?koi=${koi.id}`}
+            className="inline-flex items-center justify-center border border-l-0 border-urushi px-3 py-2.5 text-sm font-semibold text-urushi transition hover:bg-urushi hover:text-white"
+          >
+            問い合わせ
+          </Link>
+        </div>
       </div>
     </article>
   );

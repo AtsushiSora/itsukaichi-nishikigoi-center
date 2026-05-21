@@ -6,4 +6,5 @@ export const siteInfo = {
   hours: "10:00-18:00（水曜定休）",
   email: "info@example.jp",
   mapUrl: "https://maps.google.com/?q=広島県広島市佐伯区",
+  mapEmbedUrl: "https://www.google.com/maps?q=広島県広島市佐伯区&output=embed",
 };

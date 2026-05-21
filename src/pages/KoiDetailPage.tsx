@@ -1,4 +1,5 @@
-import { ArrowLeft, MessageCircle, Phone } from "lucide-react";
+import { ArrowLeft, MessageCircle, Phone, PlayCircle } from "lucide-react";
+import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ContactBand } from "../components/ContactBand";
 import { getKoiById } from "../data/koi";
@@ -7,6 +8,8 @@ import { siteInfo } from "../data/site";
 export function KoiDetailPage() {
   const { id } = useParams();
   const koi = getKoiById(id);
+  const galleryImages = useMemo(() => koi?.galleryImages ?? [], [koi]);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   if (!koi) {
     return (
@@ -19,6 +22,8 @@ export function KoiDetailPage() {
     );
   }
 
+  const mainImage = selectedImage ?? koi.imageUrl;
+
   return (
     <>
       <section className="bg-white py-10 md:py-16">
@@ -28,8 +33,47 @@ export function KoiDetailPage() {
             一覧へ戻る
           </Link>
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-            <div className="overflow-hidden rounded-md bg-sumi/10 shadow-soft">
-              <img src={koi.imageUrl} alt={`${koi.variety} ${koi.size}`} className="aspect-[4/3] w-full object-cover" />
+            <div>
+              <div className="overflow-hidden rounded-md bg-sumi/10 shadow-soft">
+                <img
+                  src={mainImage}
+                  alt={`${koi.variety} ${koi.size}`}
+                  className="aspect-[4/3] w-full object-cover"
+                />
+              </div>
+              <div className="mt-4 grid grid-cols-3 gap-3">
+                {galleryImages.map((image) => (
+                  <button
+                    type="button"
+                    key={image}
+                    onClick={() => setSelectedImage(image)}
+                    className={`overflow-hidden rounded-md border bg-white p-1 transition ${
+                      mainImage === image ? "border-urushi" : "border-black/10 hover:border-kin"
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`${koi.variety}の写真`}
+                      className="aspect-[4/3] w-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+              <div className="mt-6 overflow-hidden rounded-md border border-black/10 bg-sumi text-white">
+                {koi.videoUrl ? (
+                  <video controls src={koi.videoUrl} className="aspect-video w-full" />
+                ) : (
+                  <div className="grid aspect-video place-items-center p-8 text-center">
+                    <div>
+                      <PlayCircle className="mx-auto text-kin" size={44} />
+                      <p className="mt-4 font-serif text-2xl font-semibold">動画は準備中です</p>
+                      <p className="mt-2 text-sm leading-7 text-white/65">
+                        将来的にiPadで撮影した泳ぎの動画をここに掲載できます。
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
             <div className="rounded-md border border-black/10 bg-washi p-6 md:p-8">
               <p className="text-sm font-semibold tracking-[0.18em] text-urushi">{koi.status}</p>
@@ -54,6 +98,10 @@ export function KoiDetailPage() {
                 </div>
               </dl>
               <p className="mt-6 leading-8 text-sumi/75">{koi.comment}</p>
+              <div className="mt-6 rounded-md border border-[#d8c9ab] bg-white p-5">
+                <h2 className="font-serif text-xl font-semibold">受け渡し方法</h2>
+                <p className="mt-3 text-sm leading-7 text-sumi/70">{koi.handover}</p>
+              </div>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 <a
                   href={`tel:${siteInfo.phone}`}
