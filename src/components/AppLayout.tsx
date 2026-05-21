@@ -91,7 +91,7 @@ export function AppLayout() {
             <p className="font-serif text-2xl font-semibold">{siteInfo.name}</p>
           </div>
           <div className="text-sm leading-7 text-white/75 md:text-center">
-            <p>{siteInfo.address}</p>
+            <p>〒{siteInfo.postalCode} {siteInfo.address}</p>
             <p>TEL {siteInfo.phone}　営業時間 {siteInfo.hours}</p>
           </div>
           <div className="grid content-start gap-2 text-sm md:justify-end md:text-right">

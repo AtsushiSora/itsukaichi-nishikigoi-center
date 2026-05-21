@@ -19,7 +19,7 @@ export function ContactPage() {
                 { icon: Phone, title: "電話", value: siteInfo.phone },
                 { icon: MessageCircle, title: "LINE相談", value: siteInfo.lineLabel },
                 { icon: Mail, title: "メール", value: siteInfo.email },
-                { icon: MapPin, title: "住所", value: siteInfo.address },
+                { icon: MapPin, title: "住所", value: `〒${siteInfo.postalCode} ${siteInfo.address}` },
               ].map((item) => (
                 <div key={item.title} className="rounded-md border border-black/10 bg-white p-6">
                   <item.icon className="text-urushi" size={24} />
