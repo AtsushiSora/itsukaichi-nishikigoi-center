@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "vite build && cp dist/index.html dist/404.html",
     "preview": "vite preview",
+    "validate:inventory": "node scripts/validate-inventory.mjs",
+    "check": "npm run validate:inventory && tsc --noEmit && npm run build",
     "lint": "eslint ."
   },
   "dependencies": {
