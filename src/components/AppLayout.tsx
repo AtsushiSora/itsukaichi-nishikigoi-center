@@ -2,6 +2,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { siteInfo } from "../data/site";
+import { KoiSeal } from "./KoiSeal";
 
 const navItems = [
   { label: "ホーム", to: "/" },
@@ -20,9 +21,7 @@ export function AppLayout() {
       <header className="sticky top-0 z-40 border-b border-black/10 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-[1380px] items-center justify-between px-5 py-3 lg:px-8">
           <Link to="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
-            <span className="logo-seal grid h-14 w-14 place-items-center rounded-full border-2 border-urushi bg-white font-serif text-xl font-semibold text-urushi">
-              錦
-            </span>
+            <KoiSeal />
             <span>
               <span className="block font-serif text-2xl font-semibold leading-none md:text-3xl">
                 {siteInfo.name}
@@ -85,9 +84,7 @@ export function AppLayout() {
       <footer className="bg-[linear-gradient(135deg,#121212,#1b2224)] text-white">
         <div className="mx-auto grid max-w-[1380px] gap-8 px-5 py-8 md:grid-cols-[1fr_1.2fr_1fr] md:items-center lg:px-8">
           <div className="flex items-center gap-3">
-            <span className="grid h-12 w-12 place-items-center rounded-full border border-white/45 font-serif text-lg text-white">
-              錦
-            </span>
+            <KoiSeal variant="dark" sizeClass="h-12 w-12" />
             <p className="font-serif text-2xl font-semibold">{siteInfo.name}</p>
           </div>
           <div className="text-sm leading-7 text-white/75 md:text-center">
