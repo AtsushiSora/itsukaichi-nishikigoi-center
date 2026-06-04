@@ -45,6 +45,11 @@ const pageSeo: Record<string, Omit<SeoMetadata, "path">> = {
     description:
       "五日市錦鯉センターへのお問い合わせ、在庫確認、来店予約、飼育相談、池や設備のメンテナンス相談はこちらから。",
   },
+  "/faq": {
+    title: `よくある質問 | ${siteTitle}`,
+    description:
+      "錦鯉を初めて購入する方、飼育方法、池の管理、購入後の相談、配送・受け渡しについてよくある質問をまとめました。",
+  },
   "/privacy": {
     title: `プライバシーポリシー | ${siteTitle}`,
     description:
@@ -88,4 +93,3 @@ export const getSeoMetadata = (pathname: string): SeoMetadata => {
     imageUrl: ogImageUrl,
   };
 };
-

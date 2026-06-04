@@ -93,6 +93,9 @@ export function AppLayout() {
             <p>TEL {siteInfo.phone}　{siteInfo.hours}</p>
           </div>
           <div className="grid content-start gap-2 text-sm md:justify-end md:text-right">
+            <Link to="/faq" className="text-white/75 hover:text-kin">
+              よくある質問
+            </Link>
             <Link to="/privacy" className="text-white/75 hover:text-kin">
               プライバシーポリシー
             </Link>

@@ -5,6 +5,7 @@ import { AppLayout } from "./components/AppLayout";
 import { AboutPage } from "./pages/AboutPage";
 import { AftercarePage } from "./pages/AftercarePage";
 import { ContactPage } from "./pages/ContactPage";
+import { FaqPage } from "./pages/FaqPage";
 import { HomePage } from "./pages/HomePage";
 import { KoiDetailPage } from "./pages/KoiDetailPage";
 import { KoiListPage } from "./pages/KoiListPage";
@@ -26,6 +27,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route path="/aftercare" element={<AftercarePage />} />
           <Route path="/maintenance" element={<MaintenancePage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/faq" element={<FaqPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/commerce" element={<CommercePage />} />
           <Route path="*" element={<NotFoundPage />} />
