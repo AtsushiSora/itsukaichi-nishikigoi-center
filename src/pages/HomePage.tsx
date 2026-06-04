@@ -38,7 +38,7 @@ const services = [
 export function HomePage() {
   return (
     <>
-      <section className="relative min-h-[360px] overflow-hidden bg-sumi text-white md:min-h-[420px]">
+      <section className="relative min-h-[320px] overflow-hidden bg-sumi text-white md:min-h-[360px]">
         <img
           src={koiList[2].imageUrl}
           alt="水中を泳ぐ錦鯉"
@@ -46,9 +46,9 @@ export function HomePage() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-sumi via-sumi/70 to-sumi/5" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_62%_48%,transparent_0,rgba(18,18,18,0.12)_32%,rgba(18,18,18,0.72)_100%)]" />
-        <div className="relative mx-auto flex min-h-[360px] max-w-[1380px] items-center px-5 py-14 md:min-h-[420px] lg:px-8">
+        <div className="relative mx-auto flex min-h-[320px] max-w-[1380px] items-center px-5 py-12 md:min-h-[360px] lg:px-8">
           <div className="max-w-[560px]">
-            <h1 className="font-serif text-4xl font-semibold leading-[1.35] md:text-5xl">
+            <h1 className="font-serif text-4xl font-semibold leading-[1.32] md:text-[46px]">
               美しい錦鯉を、
               <br />
               未来へつなぐ。
@@ -89,7 +89,7 @@ export function HomePage() {
           </div>
           <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
             {koiList.slice(0, 4).map((koi) => (
-              <KoiCard key={koi.id} koi={koi} />
+              <KoiCard key={koi.id} koi={koi} showInquiry={false} />
             ))}
           </div>
         </div>
@@ -106,12 +106,12 @@ export function HomePage() {
               <Link
                 key={service.title}
                 to={service.to}
-                className="group grid min-h-[122px] grid-cols-[72px_1fr_150px] items-center gap-5 rounded-md border border-[#d8c9ab] bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-soft max-lg:grid-cols-[64px_1fr]"
+                className="group grid min-h-[122px] grid-cols-[48px_minmax(0,1fr)_108px] items-center gap-4 rounded-md border border-[#d8c9ab] bg-white p-4 transition hover:-translate-y-0.5 hover:shadow-soft max-lg:grid-cols-[52px_1fr]"
               >
-                <service.icon className="text-kin" size={48} strokeWidth={1.7} />
-                <div>
-                  <h3 className="font-serif text-2xl font-semibold">{service.title}</h3>
-                  <p className="mt-2 text-sm leading-7 text-sumi/70">{service.description}</p>
+                <service.icon className="text-kin" size={40} strokeWidth={1.7} />
+                <div className="min-w-0">
+                  <h3 className="font-serif text-lg font-semibold leading-6">{service.title}</h3>
+                  <p className="mt-2 line-clamp-3 text-sm leading-6 text-sumi/70">{service.description}</p>
                 </div>
                 <img
                   src={service.image}
