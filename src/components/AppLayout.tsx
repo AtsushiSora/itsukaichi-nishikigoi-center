@@ -88,7 +88,7 @@ export function AppLayout() {
           </div>
           <div className="text-sm leading-7 text-white/75 md:text-center">
             <p>〒{siteInfo.postalCode} {siteInfo.address}</p>
-            <p>TEL {siteInfo.phone}　営業時間 {siteInfo.hours}</p>
+            <p>TEL {siteInfo.phone}　{siteInfo.hours}</p>
           </div>
           <div className="grid content-start gap-2 text-sm md:justify-end md:text-right">
             <Link to="/privacy" className="text-white/75 hover:text-kin">

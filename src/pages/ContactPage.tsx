@@ -54,7 +54,7 @@ export function ContactPage() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
               <div className="flex items-center justify-between gap-4 p-4 text-sm">
-                <span className="text-sumi/65">住所は仮データです。公開前に差し替えてください。</span>
+                <span className="text-sumi/65">ご来店前にお電話で在庫状況と受付時間をご確認ください。</span>
                 <a href={siteInfo.mapUrl} className="shrink-0 font-semibold text-urushi">
                   地図を開く
                 </a>
@@ -62,10 +62,27 @@ export function ContactPage() {
             </div>
           </div>
 
-          <form className="rounded-md bg-white p-6 shadow-soft md:p-8">
+          <form
+            name="contact"
+            method="POST"
+            action={`${import.meta.env.BASE_URL}__forms.html`}
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            className="rounded-md bg-white p-6 shadow-soft md:p-8"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="subject" value="五日市錦鯉センター お問い合わせ" />
+            <input type="hidden" name="koiId" value={selectedKoi?.id ?? ""} />
+            <input type="hidden" name="koiVariety" value={selectedKoi?.variety ?? ""} />
+            <p className="hidden">
+              <label>
+                入力しないでください
+                <input name="bot-field" />
+              </label>
+            </p>
             <h2 className="font-serif text-3xl font-semibold">問い合わせフォーム</h2>
             <p className="mt-3 text-sm leading-7 text-sumi/60">
-              現時点では仮フォームです。Netlify Formsや外部フォームに差し替えできます。
+              Netlifyで公開すると送信内容を管理画面で確認できます。GitHub Pagesでは表示確認用です。
             </p>
             {selectedKoi && (
               <div className="mt-6 grid grid-cols-[88px_1fr] gap-4 rounded-md border border-[#d8c9ab] bg-washi p-4">
@@ -86,15 +103,26 @@ export function ContactPage() {
             <div className="mt-8 grid gap-5">
               <label className="grid gap-2 text-sm font-semibold">
                 お名前
-                <input className="rounded-md border border-black/15 px-4 py-3 font-normal outline-none focus:border-urushi" placeholder="山田 太郎" />
+                <input
+                  name="name"
+                  required
+                  className="rounded-md border border-black/15 px-4 py-3 font-normal outline-none focus:border-urushi"
+                  placeholder="山田 太郎"
+                />
               </label>
               <label className="grid gap-2 text-sm font-semibold">
                 電話番号・メールアドレス
-                <input className="rounded-md border border-black/15 px-4 py-3 font-normal outline-none focus:border-urushi" placeholder="090-0000-0000 / example@mail.com" />
+                <input
+                  name="contact"
+                  required
+                  className="rounded-md border border-black/15 px-4 py-3 font-normal outline-none focus:border-urushi"
+                  placeholder="090-0000-0000 / example@mail.com"
+                />
               </label>
               <label className="grid gap-2 text-sm font-semibold">
                 ご相談内容
                 <select
+                  name="consultationType"
                   value={consultationType}
                   onChange={(event) => setConsultationType(event.target.value)}
                   className="rounded-md border border-black/15 px-4 py-3 font-normal outline-none focus:border-urushi"
@@ -108,14 +136,16 @@ export function ContactPage() {
               <label className="grid gap-2 text-sm font-semibold">
                 詳細
                 <textarea
+                  name="message"
+                  required
                   value={message}
                   onChange={(event) => setMessage(event.target.value)}
                   className="min-h-36 rounded-md border border-black/15 px-4 py-3 font-normal outline-none focus:border-urushi"
                   placeholder="気になる錦鯉のID、池の状況、来店希望日などをご記入ください。"
                 />
               </label>
-              <button type="button" className="rounded-full bg-urushi px-6 py-3 font-semibold text-white transition hover:bg-sumi">
-                送信内容を確認する
+              <button type="submit" className="rounded-full bg-urushi px-6 py-3 font-semibold text-white transition hover:bg-sumi">
+                問い合わせを送信する
               </button>
             </div>
           </form>

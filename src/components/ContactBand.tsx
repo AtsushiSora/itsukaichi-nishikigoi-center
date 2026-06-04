@@ -7,7 +7,7 @@ export function ContactBand() {
     { icon: Phone, label: "電話相談", value: siteInfo.phone },
     { icon: MessageCircle, label: "LINE相談", value: siteInfo.lineLabel },
     { icon: Store, label: "来店相談", value: "事前予約がおすすめです" },
-    { icon: CalendarDays, label: "営業時間", value: siteInfo.hours },
+    { icon: CalendarDays, label: "来店受付", value: siteInfo.hours },
   ];
 
   return (
