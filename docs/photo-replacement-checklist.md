@@ -1,5 +1,7 @@
 # 写真差し替えチェックリスト
 
+更新全体の流れは [admin-update-workflow.md](./admin-update-workflow.md) も確認してください。
+
 ## 次に用意する写真
 
 ### トップ・店舗写真

@@ -6,6 +6,8 @@
 src/data/koi-inventory.json
 ```
 
+更新全体の流れは [admin-update-workflow.md](./admin-update-workflow.md) も確認してください。
+
 ## 編集する項目
 
 ```json
@@ -118,6 +120,14 @@ Googleスプレッドシートから書き出したCSVを使う場合は、1つ�
 
 ```bash
 npm run inventory:from-csv -- docs/koi-inventory-export.csv src/data/koi-inventory.json --write
+```
+
+### 在庫件数を確認する
+
+更新後は、状態別の件数を確認します。
+
+```bash
+npm run inventory:summary
 ```
 
 ## 将来の拡張
