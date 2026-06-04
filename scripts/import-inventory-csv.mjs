@@ -98,6 +98,11 @@ const parseCsv = (source) => {
 };
 
 const normalizeCell = (value) => value.trim();
+const headerAliases = {
+  galleryImage: "galleryImages",
+};
+
+const normalizeHeader = (header) => headerAliases[normalizeCell(header)] ?? normalizeCell(header);
 
 const normalizeStatus = (status) => {
   const normalizedStatus = {
@@ -166,7 +171,7 @@ if (rows.length < 2) {
   throw new Error("CSVにはヘッダー行と1件以上の在庫データが必要です。");
 }
 
-const headers = rows[0].map(normalizeCell);
+const headers = rows[0].map(normalizeHeader);
 const missingHeaders = requiredHeaders.filter((header) => !headers.includes(header));
 if (missingHeaders.length > 0) {
   throw new Error(`CSVヘッダーが不足しています: ${missingHeaders.join(", ")}`);
