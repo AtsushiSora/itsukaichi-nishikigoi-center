@@ -90,7 +90,7 @@ src/data/cases.ts
 編集場所:
 
 ```text
-src/pages/CommercePage.tsx
+src/data/legal.ts
 ```
 
 確認項目:
