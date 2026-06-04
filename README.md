@@ -43,6 +43,7 @@ npm run validate:inventory
 
 - [管理者向け更新手順](./docs/admin-update-workflow.md)
 - [在庫データ編集ガイド](./docs/inventory-data-guide.md)
+- [スプレッドシート在庫管理ガイド](./docs/spreadsheet-inventory-guide.md)
 - [写真差し替えチェックリスト](./docs/photo-replacement-checklist.md)
 - [Netlify公開ガイド](./docs/netlify-deploy-guide.md)
 - [実データ差し替えチェックリスト](./docs/final-data-replacement-checklist.md)

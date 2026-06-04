@@ -74,6 +74,8 @@ npm run validate:inventory
 npm run inventory:summary
 ```
 
+Googleスプレッドシートで管理する場合は [spreadsheet-inventory-guide.md](./spreadsheet-inventory-guide.md) を確認してください。
+
 ## 5. サイト表示を確認する
 
 ローカルで起動します。

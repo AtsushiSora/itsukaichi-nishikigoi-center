@@ -99,6 +99,12 @@ koi-007-main.png|koi-007-side.png|koi-007-detail.png
 
 スプレッドシートからJSONへ変換する仕組みを追加する場合も、この列名を基準にすると移行しやすくなります。
 
+Googleスプレッドシートで追加・変更・削除・状態変更・写真URL管理を行う手順は、下記にまとめています。
+
+```text
+docs/spreadsheet-inventory-guide.md
+```
+
 ### CSVからJSONへ変換する
 
 Googleスプレッドシートで編集した場合は、CSVで書き出してから下記コマンドでJSONへ変換できます。
@@ -120,6 +126,12 @@ Googleスプレッドシートから書き出したCSVを使う場合は、1つ�
 
 ```bash
 npm run inventory:from-csv -- docs/koi-inventory-export.csv src/data/koi-inventory.json --write
+```
+
+公開CSVのURLから直接取り込むこともできます。
+
+```bash
+npm run inventory:from-sheet -- "https://docs.google.com/spreadsheets/d/e/xxxxxxxx/pub?output=csv" src/data/koi-inventory.json --write
 ```
 
 ### 在庫件数を確認する

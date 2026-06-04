@@ -6,7 +6,7 @@ import { koiList, type KoiStatus } from "../data/koi";
 
 type SortKey = "recommended" | "priceAsc" | "priceDesc" | "sizeDesc";
 
-const statusFilters: Array<"すべて" | KoiStatus> = ["すべて", "販売中", "商談中", "売約済み"];
+const statusFilters: Array<"すべて" | KoiStatus> = ["すべて", "販売中", "商談中", "売約済み", "売り切れ"];
 
 const priceNumber = (price: string) => Number(price.replace(/[^\d]/g, ""));
 const sizeNumber = (size: string) => Number(size.replace(/[^\d]/g, ""));

@@ -25,7 +25,9 @@ const shouldWrite = args.includes("--write");
 const shouldShowHelp = args.includes("--help") || args.includes("-h");
 const positionalArgs = args.filter((arg) => !arg.startsWith("--"));
 
-const csvPath = path.resolve(projectRoot, positionalArgs[0] ?? defaultCsvPath);
+const isUrl = (value) => /^https?:\/\//i.test(value);
+const csvInput = positionalArgs[0] ?? defaultCsvPath;
+const csvPath = isUrl(csvInput) ? csvInput : path.resolve(projectRoot, csvInput);
 const jsonPath = path.resolve(projectRoot, positionalArgs[1] ?? defaultJsonPath);
 
 if (shouldShowHelp) {
@@ -34,11 +36,13 @@ if (shouldShowHelp) {
 使い方:
   npm run inventory:from-csv
   npm run inventory:from-csv -- docs/inventory-csv-template.csv
+  npm run inventory:from-csv -- "https://docs.google.com/spreadsheets/d/e/.../pub?output=csv"
   npm run inventory:from-csv -- docs/inventory-csv-template.csv src/data/koi-inventory.json --write
 
 注意:
   --write を付けない場合はJSONを画面に表示するだけです。
-  galleryImages は koi-001-main.png|koi-001-side.png のように | で区切ります。`);
+  galleryImages は koi-001-main.png|koi-001-side.png のように | で区切ります。
+  画像はファイル名、または https:// から始まる画像URLを使えます。`);
   process.exit(0);
 }
 
@@ -95,6 +99,17 @@ const parseCsv = (source) => {
 
 const normalizeCell = (value) => value.trim();
 
+const normalizeStatus = (status) => {
+  const normalizedStatus = {
+    売切: "売り切れ",
+    売切れ: "売り切れ",
+    売約: "売約済み",
+    売約済: "売約済み",
+  };
+
+  return normalizedStatus[status] ?? status;
+};
+
 const toRecord = (row, headers, rowNumber) => {
   const values = Object.fromEntries(headers.map((header, index) => [header, normalizeCell(row[index] ?? "")]));
   const galleryImages = values.galleryImages
@@ -110,7 +125,7 @@ const toRecord = (row, headers, rowNumber) => {
     age: values.age,
     sex: values.sex,
     price: values.price,
-    status: values.status,
+    status: normalizeStatus(values.status),
     comment: values.comment,
     mainImage: values.mainImage,
     galleryImages,
@@ -128,11 +143,25 @@ const toRecord = (row, headers, rowNumber) => {
   return record;
 };
 
-if (!fs.existsSync(csvPath)) {
-  throw new Error(`CSVファイルが見つかりません: ${csvPath}`);
-}
+const readCsvSource = async (source) => {
+  if (isUrl(source)) {
+    const response = await fetch(source);
 
-const rows = parseCsv(fs.readFileSync(csvPath, "utf8"));
+    if (!response.ok) {
+      throw new Error(`CSV URLを読み込めません: ${source} (${response.status})`);
+    }
+
+    return response.text();
+  }
+
+  if (!fs.existsSync(source)) {
+    throw new Error(`CSVファイルが見つかりません: ${source}`);
+  }
+
+  return fs.readFileSync(source, "utf8");
+};
+
+const rows = parseCsv(await readCsvSource(csvPath));
 if (rows.length < 2) {
   throw new Error("CSVにはヘッダー行と1件以上の在庫データが必要です。");
 }

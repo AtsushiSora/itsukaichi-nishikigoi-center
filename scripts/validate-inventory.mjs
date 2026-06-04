@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const inventoryPath = path.join(projectRoot, "src/data/koi-inventory.json");
 const imageDir = path.join(projectRoot, "public/images/live/inventory");
-const allowedStatuses = new Set(["販売中", "商談中", "売約済み"]);
+const allowedStatuses = new Set(["販売中", "商談中", "売約済み", "売り切れ"]);
 const allowedImageExtensions = new Set([".png", ".jpg", ".jpeg", ".webp"]);
 const requiredStringFields = [
   "id",
@@ -38,9 +38,18 @@ const readInventory = () => {
   }
 };
 
-const validateImageFile = (fileName, label, fieldName) => {
+const isAbsoluteUrl = (source) => /^https?:\/\//i.test(source);
+
+const validateImageSource = (fileName, label, fieldName) => {
   if (typeof fileName !== "string" || fileName.trim() === "") {
     addError(`${label}: ${fieldName} は空でない文字列にしてください。`);
+    return;
+  }
+
+  if (isAbsoluteUrl(fileName)) {
+    if (fileName.includes("drive.google.com/file/d/")) {
+      addWarning(`${label}: ${fieldName} はGoogle Drive共有URLです。サイト側で表示用URLに変換します。`);
+    }
     return;
   }
 
@@ -93,16 +102,16 @@ if (!Array.isArray(inventory)) {
     }
 
     if (typeof record.status === "string" && !allowedStatuses.has(record.status)) {
-      addError(`${label}: status は「販売中」「商談中」「売約済み」のいずれかにしてください。`);
+      addError(`${label}: status は「販売中」「商談中」「売約済み」「売り切れ」のいずれかにしてください。`);
     }
 
-    validateImageFile(record.mainImage, label, "mainImage");
+    validateImageSource(record.mainImage, label, "mainImage");
 
     if (!Array.isArray(record.galleryImages) || record.galleryImages.length === 0) {
       addError(`${label}: galleryImages は1枚以上の配列にしてください。`);
     } else {
       record.galleryImages.forEach((fileName, imageIndex) => {
-        validateImageFile(fileName, label, `galleryImages[${imageIndex}]`);
+        validateImageSource(fileName, label, `galleryImages[${imageIndex}]`);
       });
 
       if (typeof record.mainImage === "string" && !record.galleryImages.includes(record.mainImage)) {

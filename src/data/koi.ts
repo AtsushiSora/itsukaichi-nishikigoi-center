@@ -1,6 +1,6 @@
 import koiInventory from "./koi-inventory.json";
 
-export type KoiStatus = "販売中" | "商談中" | "売約済み";
+export type KoiStatus = "販売中" | "商談中" | "売約済み" | "売り切れ";
 
 export type Koi = {
   id: string;
@@ -33,8 +33,29 @@ type KoiInventoryRecord = {
   handover: string;
 };
 
-const inventoryImage = (fileName: string) =>
-  `${import.meta.env.BASE_URL}images/live/inventory/${fileName}`;
+const isAbsoluteImageUrl = (source: string) => /^https?:\/\//i.test(source);
+
+const normalizeGoogleDriveImageUrl = (source: string) => {
+  const fileMatch = source.match(/drive\.google\.com\/file\/d\/([^/]+)/);
+  const idMatch = source.match(/[?&]id=([^&]+)/);
+  const fileId = fileMatch?.[1] ?? idMatch?.[1];
+
+  if (!fileId || !source.includes("drive.google.com")) {
+    return source;
+  }
+
+  return `https://drive.google.com/uc?export=view&id=${fileId}`;
+};
+
+const inventoryImage = (source: string) => {
+  const trimmedSource = source.trim();
+
+  if (isAbsoluteImageUrl(trimmedSource)) {
+    return normalizeGoogleDriveImageUrl(trimmedSource);
+  }
+
+  return `${import.meta.env.BASE_URL}images/live/inventory/${trimmedSource}`;
+};
 
 const toKoi = (record: KoiInventoryRecord): Koi => ({
   id: record.id,

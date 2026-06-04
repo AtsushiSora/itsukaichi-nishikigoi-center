@@ -51,6 +51,12 @@ npm run validate:inventory
 npm run inventory:summary
 ```
 
+スプレッドシートで管理する場合:
+
+```text
+docs/spreadsheet-inventory-guide.md
+```
+
 ## 写真
 
 編集場所:

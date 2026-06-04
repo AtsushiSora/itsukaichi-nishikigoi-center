@@ -76,6 +76,9 @@ const pageSeo: Record<string, Omit<SeoMetadata, "path">> = {
 
 export const absoluteUrl = (path: string) => `${siteBaseUrl}${path === "/" ? "/" : path}`;
 
+const absoluteImageUrl = (imageUrl: string) =>
+  /^https?:\/\//i.test(imageUrl) ? imageUrl : absoluteUrl(imageUrl.replace(import.meta.env.BASE_URL, "/"));
+
 export const getSeoMetadata = (pathname: string): SeoMetadata => {
   const normalizedPath = pathname === "" ? "/" : pathname;
   const koiDetailMatch = normalizedPath.match(/^\/koi\/([^/]+)$/);
@@ -88,7 +91,7 @@ export const getSeoMetadata = (pathname: string): SeoMetadata => {
         title: `${koi.variety} ${koi.size} | 販売中の錦鯉 | ${siteTitle}`,
         description: `${koi.variety}、${koi.size}、${koi.age}、${koi.status}。${koi.comment} 詳細確認や来店相談はお問い合わせください。`,
         path: normalizedPath,
-        imageUrl: absoluteUrl(koi.imageUrl.replace(import.meta.env.BASE_URL, "/")),
+        imageUrl: absoluteImageUrl(koi.imageUrl),
       };
     }
   }

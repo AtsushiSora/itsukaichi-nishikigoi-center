@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const inventoryPath = path.join(projectRoot, "src/data/koi-inventory.json");
-const statuses = ["販売中", "商談中", "売約済み"];
+const statuses = ["販売中", "商談中", "売約済み", "売り切れ"];
 
 const inventory = JSON.parse(fs.readFileSync(inventoryPath, "utf8"));
 
