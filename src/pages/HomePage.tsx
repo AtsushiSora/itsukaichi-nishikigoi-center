@@ -47,7 +47,7 @@ export function HomePage() {
         <img
           src={heroImageUrl}
           alt="水中を泳ぐ錦鯉"
-          className="absolute inset-0 h-full w-full object-cover object-center opacity-90"
+          className="absolute inset-0 h-full w-full object-cover object-[38%_center] opacity-90"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-sumi via-sumi/55 to-sumi/5" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_48%,transparent_0,rgba(18,18,18,0.04)_33%,rgba(18,18,18,0.58)_100%)]" />

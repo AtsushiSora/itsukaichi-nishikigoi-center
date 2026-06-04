@@ -21,7 +21,6 @@ export function AppLayout() {
       <header className="sticky top-0 z-40 border-b border-black/10 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-[1380px] items-center justify-between px-5 py-3 lg:px-8">
           <Link to="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
-            <KoiSeal />
             <span>
               <span className="block font-serif text-2xl font-semibold leading-none md:text-3xl">
                 {siteInfo.name}
