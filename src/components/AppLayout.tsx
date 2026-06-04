@@ -22,7 +22,7 @@ export function AppLayout() {
         <div className="mx-auto flex max-w-[1380px] items-center justify-between px-5 py-3 lg:px-8">
           <Link to="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
             <span>
-              <span className="block font-serif text-2xl font-semibold leading-none md:text-3xl">
+              <span className="block font-serif text-xl font-semibold leading-none sm:text-2xl md:text-3xl">
                 {siteInfo.name}
               </span>
             </span>
@@ -46,7 +46,7 @@ export function AppLayout() {
 
           <button
             type="button"
-            className="grid h-11 w-11 place-items-center rounded-full border border-black/10 bg-white lg:hidden"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-black/10 bg-white lg:hidden"
             onClick={() => setOpen((value) => !value)}
             aria-label="メニュー"
           >
@@ -84,7 +84,7 @@ export function AppLayout() {
         <div className="mx-auto grid max-w-[1380px] gap-8 px-5 py-8 md:grid-cols-[1fr_1.2fr_1fr] md:items-center lg:px-8">
           <div className="flex items-center gap-3">
             <KoiSeal variant="dark" sizeClass="h-12 w-12" />
-            <p className="font-serif text-2xl font-semibold">{siteInfo.name}</p>
+            <p className="font-serif text-xl font-semibold sm:text-2xl">{siteInfo.name}</p>
           </div>
           <div className="text-sm leading-7 text-white/75 md:text-center">
             <p>〒{siteInfo.postalCode} {siteInfo.address}</p>

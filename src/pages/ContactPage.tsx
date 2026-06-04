@@ -28,7 +28,7 @@ export function ContactPage() {
         description="在庫確認、来店予約、飼育相談、池や設備のメンテナンス相談はこちらからご連絡ください。"
         imageUrl={koiList[0].imageUrl}
       />
-      <section className="py-20 md:py-28">
+      <section className="py-14 md:py-28">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <div className="grid gap-4">
             <div className="grid gap-4 sm:grid-cols-2">
@@ -49,11 +49,11 @@ export function ContactPage() {
               <iframe
                 title="五日市錦鯉センター 周辺地図"
                 src={siteInfo.mapEmbedUrl}
-                className="aspect-[4/3] w-full"
+                className="h-56 w-full sm:aspect-[4/3] sm:h-auto"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-              <div className="flex items-center justify-between gap-4 p-4 text-sm">
+              <div className="flex flex-col items-start justify-between gap-3 p-4 text-sm sm:flex-row sm:items-center">
                 <span className="text-sumi/65">ご来店前にお電話で在庫状況と受付時間をご確認ください。</span>
                 <a href={siteInfo.mapUrl} className="shrink-0 font-semibold text-urushi">
                   地図を開く
@@ -68,7 +68,7 @@ export function ContactPage() {
             action={`${import.meta.env.BASE_URL}__forms.html`}
             data-netlify="true"
             netlify-honeypot="bot-field"
-            className="rounded-md bg-white p-6 shadow-soft md:p-8"
+            className="rounded-md bg-white p-5 shadow-soft md:p-8"
           >
             <input type="hidden" name="form-name" value="contact" />
             <input type="hidden" name="subject" value="五日市錦鯉センター お問い合わせ" />

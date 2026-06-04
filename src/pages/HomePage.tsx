@@ -57,7 +57,7 @@ export function HomePage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_48%,transparent_0,rgba(18,18,18,0)_35%,rgba(18,18,18,0.24)_100%)]" />
         <div className="relative mx-auto flex min-h-[320px] max-w-[1380px] items-center px-5 py-12 md:min-h-[360px] lg:px-8">
           <div className="max-w-[560px]">
-            <h1 className="font-serif text-4xl font-semibold leading-[1.32] md:text-[46px]">
+            <h1 className="font-serif text-3xl font-semibold leading-[1.32] sm:text-4xl md:text-[46px]">
               美しい錦鯉を、
               <br />
               未来へつなぐ。
@@ -65,7 +65,7 @@ export function HomePage() {
             <p className="mt-5 border-b border-kin pb-4 font-serif text-xl font-semibold leading-8 text-white/95">
               確かな養殖・販売と、安心のアフターフォローを。
             </p>
-            <p className="mt-6 max-w-md text-sm leading-8 text-white/85">
+            <p className="mt-6 max-w-[260px] text-sm leading-8 text-white/85 sm:max-w-md">
               五日市錦鯉センターは、丁寧な養殖と確かな目利きで、皆さまの錦鯉ライフをトータルに支えます。
             </p>
           </div>
