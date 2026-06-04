@@ -35,17 +35,19 @@ const services = [
   },
 ];
 
+const heroImageUrl = "/images/hero-koi.png";
+
 export function HomePage() {
   return (
     <>
       <section className="relative min-h-[320px] overflow-hidden bg-sumi text-white md:min-h-[360px]">
         <img
-          src={koiList[2].imageUrl}
+          src={heroImageUrl}
           alt="水中を泳ぐ錦鯉"
-          className="absolute inset-0 h-full w-full object-cover opacity-80"
+          className="absolute inset-0 h-full w-full object-cover object-center opacity-90"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-sumi via-sumi/70 to-sumi/5" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_62%_48%,transparent_0,rgba(18,18,18,0.12)_32%,rgba(18,18,18,0.72)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-sumi via-sumi/55 to-sumi/5" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_48%,transparent_0,rgba(18,18,18,0.04)_33%,rgba(18,18,18,0.58)_100%)]" />
         <div className="relative mx-auto flex min-h-[320px] max-w-[1380px] items-center px-5 py-12 md:min-h-[360px] lg:px-8">
           <div className="max-w-[560px]">
             <h1 className="font-serif text-4xl font-semibold leading-[1.32] md:text-[46px]">
