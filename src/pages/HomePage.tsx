@@ -11,34 +11,37 @@ import { KoiCard } from "../components/KoiCard";
 import { koiList } from "../data/koi";
 import { siteInfo } from "../data/site";
 
-const generatedImage = (fileName: string) =>
-  `${import.meta.env.BASE_URL}images/generated/${fileName}`;
+const siteImage = (fileName: string) =>
+  `${import.meta.env.BASE_URL}images/live/site/${fileName}`;
+
+const serviceImage = (fileName: string) =>
+  `${import.meta.env.BASE_URL}images/live/services/${fileName}`;
 
 const services = [
   {
     title: "養殖・販売",
     description: "品種、体形、池の環境、ご予算を踏まえ、長く楽しめる錦鯉をご提案します。",
     icon: ShieldCheck,
-    image: generatedImage("service-breeding.png"),
+    image: serviceImage("breeding.png"),
     to: "/about",
   },
   {
     title: "アフターフォロー",
     description: "導入後の餌やり、水質、体調変化まで、専門店として継続的に相談を承ります。",
     icon: HeartHandshake,
-    image: generatedImage("service-aftercare.png"),
+    image: serviceImage("aftercare.png"),
     to: "/aftercare",
   },
   {
     title: "池・設備メンテナンス",
     description: "濾過槽、ポンプ、水質、池まわりの点検や改善提案に対応します。",
     icon: Wrench,
-    image: generatedImage("service-maintenance.png"),
+    image: serviceImage("maintenance.png"),
     to: "/maintenance",
   },
 ];
 
-const heroImageUrl = generatedImage("hero-koi-banner.png");
+const heroImageUrl = siteImage("hero-koi-banner.png");
 
 export function HomePage() {
   return (
@@ -136,7 +139,7 @@ export function HomePage() {
         <div className="mx-auto grid max-w-[1380px] lg:grid-cols-[1.15fr_0.85fr]">
           <div className="relative min-h-[210px] overflow-hidden px-5 py-9 lg:px-8">
             <img
-              src={generatedImage("beginner-koi-dark.png")}
+              src={siteImage("beginner-koi-dark.png")}
               alt="池で泳ぐ錦鯉"
               className="absolute inset-0 h-full w-full object-cover opacity-35"
             />
