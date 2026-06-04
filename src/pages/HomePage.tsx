@@ -47,8 +47,9 @@ export function HomePage() {
         <img
           src={heroImageUrl}
           alt="水中を泳ぐ錦鯉"
-          className="absolute inset-0 h-full w-full object-cover object-[38%_center] opacity-100"
+          className="hero-koi-image absolute inset-0 h-full w-full object-cover object-[38%_center] opacity-100"
         />
+        <div className="water-shimmer absolute inset-0" />
         <div className="absolute inset-0 bg-gradient-to-r from-sumi/84 via-sumi/24 to-sumi/0" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_48%,transparent_0,rgba(18,18,18,0)_35%,rgba(18,18,18,0.24)_100%)]" />
         <div className="relative mx-auto flex min-h-[320px] max-w-[1380px] items-center px-5 py-12 md:min-h-[360px] lg:px-8">
@@ -94,7 +95,9 @@ export function HomePage() {
           </div>
           <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
             {koiList.slice(0, 4).map((koi) => (
-              <KoiCard key={koi.id} koi={koi} showInquiry={false} />
+              <div key={koi.id} className="reveal-card">
+                <KoiCard koi={koi} showInquiry={false} />
+              </div>
             ))}
           </div>
         </div>

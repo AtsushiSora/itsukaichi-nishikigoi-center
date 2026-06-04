@@ -1,9 +1,26 @@
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { PageHero } from "../components/PageHero";
 import { koiList } from "../data/koi";
 import { siteInfo } from "../data/site";
 
 export function ContactPage() {
+  const [searchParams] = useSearchParams();
+  const initialKoiId = searchParams.get("koi") ?? "";
+  const selectedKoi = useMemo(
+    () => koiList.find((koi) => koi.id === initialKoiId),
+    [initialKoiId],
+  );
+  const [consultationType, setConsultationType] = useState(
+    selectedKoi ? "錦鯉の購入相談" : "来店予約",
+  );
+  const [message, setMessage] = useState(
+    selectedKoi
+      ? `${selectedKoi.variety}（${selectedKoi.id} / ${selectedKoi.size}）について相談したいです。`
+      : "",
+  );
+
   return (
     <>
       <PageHero
@@ -50,6 +67,22 @@ export function ContactPage() {
             <p className="mt-3 text-sm leading-7 text-sumi/60">
               現時点では仮フォームです。Netlify Formsや外部フォームに差し替えできます。
             </p>
+            {selectedKoi && (
+              <div className="mt-6 grid grid-cols-[88px_1fr] gap-4 rounded-md border border-[#d8c9ab] bg-washi p-4">
+                <img
+                  src={selectedKoi.imageUrl}
+                  alt={`${selectedKoi.variety} ${selectedKoi.size}`}
+                  className="aspect-square rounded-sm object-cover"
+                />
+                <div>
+                  <p className="text-xs font-semibold tracking-[0.16em] text-urushi">相談中の錦鯉</p>
+                  <p className="mt-1 font-serif text-xl font-semibold">{selectedKoi.variety}</p>
+                  <p className="mt-1 text-sm text-sumi/65">
+                    {selectedKoi.id} / {selectedKoi.size} / {selectedKoi.status}
+                  </p>
+                </div>
+              </div>
+            )}
             <div className="mt-8 grid gap-5">
               <label className="grid gap-2 text-sm font-semibold">
                 お名前
@@ -61,7 +94,11 @@ export function ContactPage() {
               </label>
               <label className="grid gap-2 text-sm font-semibold">
                 ご相談内容
-                <select className="rounded-md border border-black/15 px-4 py-3 font-normal outline-none focus:border-urushi">
+                <select
+                  value={consultationType}
+                  onChange={(event) => setConsultationType(event.target.value)}
+                  className="rounded-md border border-black/15 px-4 py-3 font-normal outline-none focus:border-urushi"
+                >
                   <option>錦鯉の購入相談</option>
                   <option>来店予約</option>
                   <option>アフターフォロー</option>
@@ -70,7 +107,12 @@ export function ContactPage() {
               </label>
               <label className="grid gap-2 text-sm font-semibold">
                 詳細
-                <textarea className="min-h-36 rounded-md border border-black/15 px-4 py-3 font-normal outline-none focus:border-urushi" placeholder="気になる錦鯉のID、池の状況、来店希望日などをご記入ください。" />
+                <textarea
+                  value={message}
+                  onChange={(event) => setMessage(event.target.value)}
+                  className="min-h-36 rounded-md border border-black/15 px-4 py-3 font-normal outline-none focus:border-urushi"
+                  placeholder="気になる錦鯉のID、池の状況、来店希望日などをご記入ください。"
+                />
               </label>
               <button type="button" className="rounded-full bg-urushi px-6 py-3 font-semibold text-white transition hover:bg-sumi">
                 送信内容を確認する

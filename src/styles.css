@@ -52,3 +52,80 @@ img {
 .vertical-label {
   writing-mode: vertical-rl;
 }
+
+.hero-koi-image {
+  animation: hero-drift 18s ease-in-out infinite alternate;
+}
+
+.water-shimmer {
+  background:
+    linear-gradient(
+      115deg,
+      transparent 18%,
+      rgba(255, 255, 255, 0.12) 34%,
+      transparent 50%
+    );
+  mix-blend-mode: screen;
+  opacity: 0.28;
+  transform: translateX(-35%);
+  animation: water-shimmer 9s ease-in-out infinite;
+}
+
+.reveal-card {
+  animation: reveal-card 0.7s ease both;
+}
+
+.reveal-card:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.reveal-card:nth-child(3) {
+  animation-delay: 0.16s;
+}
+
+.reveal-card:nth-child(4) {
+  animation-delay: 0.24s;
+}
+
+@keyframes hero-drift {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.035) translateX(1.2%);
+  }
+}
+
+@keyframes water-shimmer {
+  0%,
+  100% {
+    transform: translateX(-42%);
+  }
+
+  50% {
+    transform: translateX(32%);
+  }
+}
+
+@keyframes reveal-card {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

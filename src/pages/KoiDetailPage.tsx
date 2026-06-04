@@ -111,7 +111,7 @@ export function KoiDetailPage() {
                   電話で相談
                 </a>
                 <Link
-                  to="/contact"
+                  to={`/contact?koi=${koi.id}`}
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-urushi px-5 py-3 font-semibold text-urushi transition hover:bg-urushi hover:text-white"
                 >
                   <MessageCircle size={18} />
