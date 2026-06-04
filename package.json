@@ -10,6 +10,7 @@
     "validate:inventory": "node scripts/validate-inventory.mjs",
     "inventory:from-csv": "node scripts/import-inventory-csv.mjs",
     "inventory:summary": "node scripts/inventory-summary.mjs",
+    "audit:launch": "node scripts/audit-launch-data.mjs",
     "check": "npm run validate:inventory && tsc --noEmit && npm run build",
     "lint": "eslint ."
   },

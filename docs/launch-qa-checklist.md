@@ -29,6 +29,7 @@
 
 - [x] `npm run validate:inventory`
 - [x] `npm run inventory:summary`
+- [x] `npm run audit:launch`
 - [x] `npm run check`
 - [x] `GITHUB_PAGES=true npm run build`
 

@@ -100,6 +100,7 @@ npm run dev
 下記を実行します。
 
 ```bash
+npm run audit:launch
 npm run check
 GITHUB_PAGES=true npm run build
 ```
@@ -116,3 +117,4 @@ https://atsushisora.github.io/itsukaichi-nishikigoi-center/
 - 在庫情報の本体は [koi-inventory.json](../src/data/koi-inventory.json) です。
 - CSVで管理する場合は、CSVからJSONへ変換してから公開します。
 - 写真を差し替えたら、スマホ表示で画像の見切れを確認します。
+- 実公開前の確認項目は [final-data-replacement-checklist.md](./final-data-replacement-checklist.md) を確認します。

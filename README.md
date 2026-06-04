@@ -20,6 +20,7 @@ npm run dev
 ```bash
 npm run validate:inventory
 npm run inventory:summary
+npm run audit:launch
 npm run check
 ```
 
@@ -44,6 +45,7 @@ npm run validate:inventory
 - [在庫データ編集ガイド](./docs/inventory-data-guide.md)
 - [写真差し替えチェックリスト](./docs/photo-replacement-checklist.md)
 - [Netlify公開ガイド](./docs/netlify-deploy-guide.md)
+- [実データ差し替えチェックリスト](./docs/final-data-replacement-checklist.md)
 
 ## 画像の置き場所
 
