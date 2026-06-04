@@ -89,7 +89,36 @@ docs/inventory-csv-template.csv
 koi-007-main.png|koi-007-side.png|koi-007-detail.png
 ```
 
+価格など半角カンマを含む項目は、CSV上では引用符で囲みます。
+
+```text
+"税込 88,000円"
+```
+
 スプレッドシートからJSONへ変換する仕組みを追加する場合も、この列名を基準にすると移行しやすくなります。
+
+### CSVからJSONへ変換する
+
+Googleスプレッドシートで編集した場合は、CSVで書き出してから下記コマンドでJSONへ変換できます。
+
+```bash
+npm run inventory:from-csv -- docs/inventory-csv-template.csv
+```
+
+このコマンドは、何も書き換えずに変換後のJSONを画面に表示します。
+
+実際に `src/data/koi-inventory.json` を更新する場合は、内容を確認したうえで `--write` を付けます。
+
+```bash
+npm run inventory:from-csv -- docs/inventory-csv-template.csv src/data/koi-inventory.json --write
+npm run validate:inventory
+```
+
+Googleスプレッドシートから書き出したCSVを使う場合は、1つ目のパスを差し替えます。
+
+```bash
+npm run inventory:from-csv -- docs/koi-inventory-export.csv src/data/koi-inventory.json --write
+```
 
 ## 将来の拡張
 
