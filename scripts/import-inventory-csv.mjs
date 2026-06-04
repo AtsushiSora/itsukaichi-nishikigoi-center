@@ -115,13 +115,23 @@ const normalizeStatus = (status) => {
   return normalizedStatus[status] ?? status;
 };
 
+const splitImageList = (source) => {
+  if (!source) {
+    return [];
+  }
+
+  if (!source.includes("|") && isUrl(source)) {
+    return [source.trim()];
+  }
+
+  const separator = source.includes("|") ? "|" : ",";
+  return source.split(separator).map((image) => image.trim()).filter(Boolean);
+};
+
 const toRecord = (row, headers, rowNumber) => {
   const values = Object.fromEntries(headers.map((header, index) => [header, normalizeCell(row[index] ?? "")]));
-  const galleryImages = values.galleryImages
-    ? values.galleryImages.split("|").map((image) => image.trim()).filter(Boolean)
-    : values.mainImage
-      ? [values.mainImage]
-      : [];
+  const [mainImage, ...extraMainImages] = splitImageList(values.mainImage);
+  const galleryImages = [...new Set([mainImage, ...extraMainImages, ...splitImageList(values.galleryImages)].filter(Boolean))];
 
   const record = {
     id: values.id,
@@ -132,7 +142,7 @@ const toRecord = (row, headers, rowNumber) => {
     price: values.price,
     status: normalizeStatus(values.status),
     comment: values.comment,
-    mainImage: values.mainImage,
+    mainImage,
     galleryImages,
     handover: values.handover,
   };

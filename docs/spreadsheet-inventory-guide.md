@@ -30,7 +30,7 @@ id,variety,size,age,sex,price,status,comment,mainImage,galleryImages,handover,vi
 | `status` | `販売中` / `商談中` / `売約済み` / `売り切れ` |
 | `comment` | 説明文 |
 | `mainImage` | 一覧・メイン写真 |
-| `galleryImages` | 詳細ページの写真。複数は `|` 区切り |
+| `galleryImages` | 詳細ページの写真。複数は `|` 区切り推奨。カンマ区切りも取り込み可 |
 | `handover` | 受け渡し説明 |
 | `videoUrl` | 動画URL。空でも可 |
 
@@ -87,6 +87,12 @@ koi-007-main.png
 
 ```text
 koi-007-main.png|koi-007-side.png|koi-007-detail.png
+```
+
+カンマ区切りでも取り込めます。
+
+```text
+koi-007-main.png,koi-007-side.png,koi-007-detail.png
 ```
 
 ### 方法2: 画像URLで管理する
