@@ -117,17 +117,17 @@ export function HomePage() {
               <Link
                 key={service.title}
                 to={service.to}
-                className="group grid min-h-[122px] grid-cols-[48px_minmax(0,1fr)_108px] items-center gap-4 rounded-md border border-[#d8c9ab] bg-white p-4 transition hover:-translate-y-0.5 hover:shadow-soft max-lg:grid-cols-[52px_1fr]"
+                className="group grid min-h-[122px] grid-cols-[38px_minmax(0,1fr)_64px] items-center gap-3 rounded-md border border-[#d8c9ab] bg-white p-4 transition hover:-translate-y-0.5 hover:shadow-soft max-lg:grid-cols-[52px_1fr]"
               >
-                <service.icon className="text-kin" size={40} strokeWidth={1.7} />
+                <service.icon className="text-kin" size={34} strokeWidth={1.7} />
                 <div className="min-w-0">
-                  <h3 className="font-serif text-lg font-semibold leading-6">{service.title}</h3>
+                  <h3 className="whitespace-nowrap font-serif text-base font-semibold leading-6 xl:text-lg">{service.title}</h3>
                   <p className="mt-2 line-clamp-3 text-sm leading-6 text-sumi/70">{service.description}</p>
                 </div>
                 <img
                   src={service.image}
                   alt=""
-                  className="h-24 w-full rounded-sm object-cover max-lg:hidden"
+                  className="h-20 w-full rounded-sm object-cover max-lg:hidden"
                 />
               </Link>
             ))}

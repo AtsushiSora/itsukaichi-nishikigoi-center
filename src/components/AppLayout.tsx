@@ -50,14 +50,16 @@ export function AppLayout() {
             type="button"
             className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-black/10 bg-white lg:hidden"
             onClick={() => setOpen((value) => !value)}
-            aria-label="メニュー"
+            aria-controls="site-mobile-navigation"
+            aria-expanded={open}
+            aria-label={open ? "メニューを閉じる" : "メニューを開く"}
           >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
         {open && (
-          <nav className="border-t border-black/10 bg-white px-5 py-4 lg:hidden">
+          <nav id="site-mobile-navigation" className="border-t border-black/10 bg-white px-5 py-4 lg:hidden">
             <div className="grid gap-2">
               {navItems.map((item) => (
                 <NavLink
