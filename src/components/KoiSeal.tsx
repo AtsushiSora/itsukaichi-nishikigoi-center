@@ -12,7 +12,7 @@ export function KoiSeal({ variant = "light", sizeClass = "h-14 w-14" }: KoiSealP
       className={`koi-seal grid ${sizeClass} place-items-center rounded-full border-2 ${ring}`}
       aria-hidden="true"
     >
-      <svg viewBox="0 0 64 64" className="h-[78%] w-[78%]" role="img">
+      <svg viewBox="-4 -4 72 72" className="h-[72%] w-[72%] overflow-visible" role="img">
         <path
           d="M33.8 7.2c8.9 3.4 14.2 11.2 13.3 19.7-.8 7.8-6.2 14.6-14.6 18.9 6-.9 11.5-3.4 16.1-7.6-1.8 7.8-7.5 13.5-15.7 15.3-4.8 1.1-10.2.8-15.9-1 4.3-2.1 7.2-5.1 8.8-9-6.9-2-11.4-6.9-11.8-12.7-.3-5.1 2.4-9.9 7.1-13.1-4.6.3-8.5 2.2-11.7 5.8.8-6.9 4.8-12.1 11.7-14.5 4.1-1.4 8.2-1.3 12.7-1.8Z"
           fill="currentColor"
