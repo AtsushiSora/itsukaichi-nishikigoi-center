@@ -41,7 +41,7 @@
 
 ## 公開後に再確認する項目
 
-- [ ] GitHub Pagesのトップページ
-- [ ] GitHub Pagesの在庫一覧
-- [ ] GitHub Pagesの問い合わせページ
+- [x] GitHub Pagesのトップページ
+- [x] GitHub Pagesの在庫一覧
+- [x] GitHub Pagesの問い合わせページ
 - [ ] Netlifyへ公開した場合のフォーム送信テスト
