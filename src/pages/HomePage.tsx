@@ -47,10 +47,10 @@ export function HomePage() {
         <img
           src={heroImageUrl}
           alt="水中を泳ぐ錦鯉"
-          className="absolute inset-0 h-full w-full object-cover object-[38%_center] opacity-90"
+          className="absolute inset-0 h-full w-full object-cover object-[38%_center] opacity-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-sumi via-sumi/55 to-sumi/5" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_48%,transparent_0,rgba(18,18,18,0.04)_33%,rgba(18,18,18,0.58)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-sumi/84 via-sumi/24 to-sumi/0" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_48%,transparent_0,rgba(18,18,18,0)_35%,rgba(18,18,18,0.24)_100%)]" />
         <div className="relative mx-auto flex min-h-[320px] max-w-[1380px] items-center px-5 py-12 md:min-h-[360px] lg:px-8">
           <div className="max-w-[560px]">
             <h1 className="font-serif text-4xl font-semibold leading-[1.32] md:text-[46px]">
