@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AppLayout } from "./components/AppLayout";
 import { AboutPage } from "./pages/AboutPage";
 import { AftercarePage } from "./pages/AftercarePage";
+import { CasesPage } from "./pages/CasesPage";
 import { ContactPage } from "./pages/ContactPage";
 import { FaqPage } from "./pages/FaqPage";
 import { HomePage } from "./pages/HomePage";
@@ -26,6 +27,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route path="/about" element={<AboutPage />} />
           <Route path="/aftercare" element={<AftercarePage />} />
           <Route path="/maintenance" element={<MaintenancePage />} />
+          <Route path="/cases" element={<CasesPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />

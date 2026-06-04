@@ -40,6 +40,11 @@ const pageSeo: Record<string, Omit<SeoMetadata, "path">> = {
     description:
       "錦鯉の池、濾過槽、ポンプ、水質、設備点検など、池・設備メンテナンスの相談についてご案内します。",
   },
+  "/cases": {
+    title: `事例紹介 | ${siteTitle}`,
+    description:
+      "池のメンテナンス、錦鯉の導入相談、購入後のアフターフォローなど、五日市錦鯉センターへの相談内容の例をご紹介します。",
+  },
   "/contact": {
     title: `お問い合わせ・アクセス | ${siteTitle}`,
     description:
