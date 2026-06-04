@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://atsushisora.github.io/itsukaichi-nishikigoi-center/sitemap.xml
