@@ -95,7 +95,17 @@ npm run dev
 /koi/koi-007
 ```
 
-## 6. 公開前チェック
+## 6. ホームのお知らせを更新する
+
+ホームに表示する「お店からのお知らせ」は下記で編集します。
+
+```text
+src/data/home-message.ts
+```
+
+文章、ボタン名、リンク先を変更できます。
+
+## 7. 公開前チェック
 
 下記を実行します。
 
@@ -114,6 +124,7 @@ https://atsushisora.github.io/itsukaichi-nishikigoi-center/
 ## 更新時の注意
 
 - 実在情報の変更は [site.ts](../src/data/site.ts) を更新します。
+- ホームのお知らせは [home-message.ts](../src/data/home-message.ts) を更新します。
 - 在庫情報の本体は [koi-inventory.json](../src/data/koi-inventory.json) です。
 - CSVで管理する場合は、CSVからJSONへ変換してから公開します。
 - 写真を差し替えたら、スマホ表示で画像の見切れを確認します。

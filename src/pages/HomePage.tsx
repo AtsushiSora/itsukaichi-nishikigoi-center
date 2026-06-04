@@ -1,5 +1,6 @@
 import {
   ArrowRight,
+  Bell,
   HeartHandshake,
   Home,
   Phone,
@@ -8,6 +9,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { KoiCard } from "../components/KoiCard";
+import { homeMessage } from "../data/home-message";
 import { koiList } from "../data/koi";
 import { siteInfo } from "../data/site";
 
@@ -76,6 +78,30 @@ export function HomePage() {
             <span className="border border-urushi px-2 py-1 font-serif text-sm text-urushi">
               錦鯉
             </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-washi py-6 md:py-8">
+        <div className="mx-auto max-w-[1180px] px-5 lg:px-8">
+          <div className="grid gap-5 rounded-md border border-[#d8c9ab] bg-white p-5 shadow-[0_4px_18px_rgba(18,18,18,0.06)] md:grid-cols-[auto_1fr_auto] md:items-center md:p-6">
+            <div className="grid h-12 w-12 place-items-center rounded-full bg-urushi text-white">
+              <Bell size={22} strokeWidth={1.8} />
+            </div>
+            <div>
+              <p className="text-xs font-semibold tracking-[0.18em] text-urushi">{homeMessage.eyebrow}</p>
+              <h2 className="mt-2 font-serif text-xl font-semibold leading-tight sm:text-2xl md:text-3xl">
+                {homeMessage.title}
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-sumi/70 md:text-base">{homeMessage.body}</p>
+            </div>
+            <Link
+              to={homeMessage.ctaUrl}
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-urushi px-5 py-3 text-sm font-semibold text-white transition hover:bg-sumi"
+            >
+              {homeMessage.ctaLabel}
+              <ArrowRight size={16} />
+            </Link>
           </div>
         </div>
       </section>
