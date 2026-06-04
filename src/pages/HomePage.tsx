@@ -35,7 +35,7 @@ const services = [
   },
 ];
 
-const heroImageUrl = "/images/hero-koi.png";
+const heroImageUrl = `${import.meta.env.BASE_URL}images/site-reference.png`;
 
 export function HomePage() {
   return (
