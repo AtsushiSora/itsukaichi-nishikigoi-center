@@ -14,6 +14,7 @@ import { MaintenancePage } from "./pages/MaintenancePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { PrivacyPage } from "./pages/PrivacyPage";
 import { CommercePage } from "./pages/CommercePage";
+import { ThanksPage } from "./pages/ThanksPage";
 import "./styles.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -29,6 +30,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route path="/maintenance" element={<MaintenancePage />} />
           <Route path="/cases" element={<CasesPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/thanks" element={<ThanksPage />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/commerce" element={<CommercePage />} />

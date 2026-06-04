@@ -1,7 +1,9 @@
 import { getKoiById } from "./koi";
 import { siteInfo } from "./site";
 
-export const siteBaseUrl = "https://atsushisora.github.io/itsukaichi-nishikigoi-center";
+const defaultSiteBaseUrl = "https://atsushisora.github.io/itsukaichi-nishikigoi-center";
+
+export const siteBaseUrl = (import.meta.env.VITE_SITE_BASE_URL ?? defaultSiteBaseUrl).replace(/\/$/, "");
 
 export const ogImageUrl = `${siteBaseUrl}/images/live/site/hero-koi-banner.png`;
 
@@ -49,6 +51,11 @@ const pageSeo: Record<string, Omit<SeoMetadata, "path">> = {
     title: `お問い合わせ・アクセス | ${siteTitle}`,
     description:
       "五日市錦鯉センターへのお問い合わせ、在庫確認、来店予約、飼育相談、池や設備のメンテナンス相談はこちらから。",
+  },
+  "/thanks": {
+    title: `お問い合わせ送信完了 | ${siteTitle}`,
+    description:
+      "五日市錦鯉センターへのお問い合わせを受け付けました。内容を確認のうえ、担当者よりご連絡いたします。",
   },
   "/faq": {
     title: `よくある質問 | ${siteTitle}`,

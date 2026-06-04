@@ -38,6 +38,7 @@
 - [x] Netlify Forms用のhidden formがある
 - [x] `form-name` が `contact` で一致している
 - [x] 錦鯉詳細から問い合わせへ遷移した場合、対象IDがhidden項目に入る
+- [x] 送信後ページ `/thanks` がある
 
 ## 公開後に再確認する項目
 

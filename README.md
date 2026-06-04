@@ -43,6 +43,7 @@ npm run validate:inventory
 - [管理者向け更新手順](./docs/admin-update-workflow.md)
 - [在庫データ編集ガイド](./docs/inventory-data-guide.md)
 - [写真差し替えチェックリスト](./docs/photo-replacement-checklist.md)
+- [Netlify公開ガイド](./docs/netlify-deploy-guide.md)
 
 ## 画像の置き場所
 
@@ -55,3 +56,5 @@ public/images/live/services/
 ## 公開
 
 GitHub Pagesで公開します。`main` ブランチへpushすると、GitHub Actionsで在庫検証とビルドが実行されます。
+
+問い合わせフォームを実際に受け付ける場合は、Netlify公開を使います。Netlifyでは `VITE_SITE_BASE_URL` に公開URLまたは独自ドメインを設定してください。

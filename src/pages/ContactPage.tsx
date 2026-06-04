@@ -65,7 +65,7 @@ export function ContactPage() {
           <form
             name="contact"
             method="POST"
-            action={`${import.meta.env.BASE_URL}__forms.html`}
+            action={`${import.meta.env.BASE_URL}thanks`}
             data-netlify="true"
             netlify-honeypot="bot-field"
             className="rounded-md bg-white p-5 shadow-soft md:p-8"
