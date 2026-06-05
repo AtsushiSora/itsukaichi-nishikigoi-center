@@ -34,11 +34,11 @@ export function KoiDetailPage() {
           </Link>
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
             <div>
-              <div className="overflow-hidden rounded-md bg-sumi/10 shadow-soft">
+              <div className="overflow-hidden rounded-md bg-mizu/10 shadow-soft">
                 <img
                   src={mainImage}
                   alt={`${koi.variety} ${koi.size}`}
-                  className="aspect-[4/3] w-full object-cover"
+                  className="aspect-[4/3] w-full object-contain"
                 />
               </div>
               <div className="mt-4 grid grid-cols-3 gap-3">
@@ -54,7 +54,7 @@ export function KoiDetailPage() {
                     <img
                       src={image}
                       alt={`${koi.variety}の写真`}
-                      className="aspect-[4/3] w-full object-cover"
+                      className="aspect-[4/3] w-full object-contain"
                     />
                   </button>
                 ))}
